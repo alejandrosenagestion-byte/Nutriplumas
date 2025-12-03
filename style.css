@@ -1,0 +1,232 @@
+/* Variables de color */
+:root {
+    --verde-nutri: #185E20;
+    --verde-claro: #2E7D32;
+    --gris-fondo: #f5f5f5;
+    --gris-borde: #ddd;
+    --blanco: #ffffff;
+    --texto: #333;
+    --texto-claro: #666;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--gris-fondo);
+    color: var(--texto);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--blanco);
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    padding: 30px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid var(--verde-nutri);
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    color: var(--verde-nutri);
+    margin-bottom: 10px;
+}
+
+header h1 i {
+    margin-right: 15px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--texto-claro);
+    font-weight: 300;
+}
+
+/* Cards */
+.card {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--verde-nutri);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--verde-claro);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.card h2 i {
+    margin-right: 10px;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.tag {
+    background: linear-gradient(135deg, var(--verde-nutri), var(--verde-claro));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(24, 94, 32, 0.2);
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(24, 94, 32, 0.3);
+}
+
+.tag i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Imagen */
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.diagram {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--gris-borde);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.image-caption {
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--texto-claro);
+    font-size: 0.95rem;
+}
+
+/* Features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: #f0f0f0;
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: var(--verde-nutri);
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    color: var(--verde-claro);
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid var(--gris-borde);
+    color: var(--texto-claro);
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer i {
+    margin-right: 8px;
+}
+
+.last-update {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tags {
+        flex-direction: column;
+    }
+    
+    .tag {
+        justify-content: center;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--verde-nutri);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--verde-claro);
+}
