@@ -1,3 +1,171 @@
+/* =========================================== */
+/* ESTILOS PARA BOTONES "VOLVER ARRIBA" */
+/* =========================================== */
+
+/* Botón flotante fijo */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--verde-nutri), var(--verde-claro));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(24, 94, 32, 0.4);
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.back-to-top-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(24, 94, 32, 0.6);
+    background: linear-gradient(135deg, var(--verde-claro), #1e7e34);
+}
+
+.back-to-top-btn.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 5px 15px rgba(24, 94, 32, 0.4);
+    }
+    50% {
+        box-shadow: 0 5px 20px rgba(24, 94, 32, 0.7);
+    }
+    100% {
+        box-shadow: 0 5px 15px rgba(24, 94, 32, 0.4);
+    }
+}
+
+/* Botón en header */
+.header-actions {
+    margin-top: 20px;
+}
+
+.top-btn {
+    background: linear-gradient(135deg, var(--verde-nutri), var(--verde-claro));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(24, 94, 32, 0.3);
+}
+
+.top-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(24, 94, 32, 0.5);
+}
+
+/* Encabezado de sección con botón */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.section-top-btn {
+    background: var(--gris-claro);
+    color: var(--verde-nutri);
+    border: 2px solid var(--gris-borde);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.section-top-btn:hover {
+    background: var(--verde-nutri);
+    color: white;
+    border-color: var(--verde-nutri);
+    transform: translateY(-3px);
+}
+
+/* Pie de sección con botón */
+.section-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid var(--gris-borde);
+    text-align: center;
+}
+
+.back-top-btn {
+    background: transparent;
+    color: var(--verde-claro);
+    border: 2px solid var(--verde-claro);
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.back-top-btn:hover {
+    background: var(--verde-claro);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+/* Botón en footer */
+.footer-top-btn {
+    background: transparent;
+    color: var(--texto-claro);
+    border: 1px solid var(--gris-borde);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.footer-top-btn:hover {
+    background: var(--gris-claro);
+    border-color: var(--verde-claro);
+    color: var(--verde-claro);
+}
+
+/* =========================================== */
+/* RESTO DEL CSS (IGUAL QUE ANTES) */
+/* =========================================== */
+
 /* Variables de color */
 :root {
     --verde-nutri: #185E20;
@@ -705,6 +873,15 @@ footer i {
         font-size: 1.6rem;
     }
     
+    .section-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .section-top-btn {
+        align-self: flex-end;
+    }
+    
     .mission-grid,
     .roles-container,
     .value-points {
@@ -737,6 +914,13 @@ footer i {
         padding: 14px 25px;
         font-size: 1.1rem;
     }
+    
+    .back-to-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -755,6 +939,14 @@ footer i {
     .wiki-table th,
     .wiki-table td {
         padding: 12px 15px;
+    }
+    
+    .back-to-top-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
 }
