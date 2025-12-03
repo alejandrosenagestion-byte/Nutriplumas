@@ -9,6 +9,7 @@ console.log("📊 Área de Finanzas y Abastecimiento");
 console.log("📊 =========================================");
 console.log("📊 Cargada correctamente: " + new Date().toLocaleString());
 console.log("📊 Contacto: alejandrosenagestion@gmail.com");
+console.log("📊 Diagramas: diagrama.jpeg + diagrama tesoreria.jpg");
 console.log("📊 =========================================");
 
 // Función principal cuando el DOM está listo
@@ -16,7 +17,48 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ DOM completamente cargado");
     
     // ====================
-    // 1. CONTROL DEL BOTÓN "VOLVER ARRIBA" (FIXED)
+    // 1. CONTROL DE IMÁGENES DE DIAGRAMAS
+    // ====================
+    function setupDiagramImages() {
+        const diagrams = document.querySelectorAll('.diagram');
+        console.log("🖼️ Configurando " + diagrams.length + " diagramas");
+        
+        diagrams.forEach((img, index) => {
+            // Agregar clase de carga
+            img.classList.add('loading');
+            
+            // Configurar eventos de carga/error
+            img.addEventListener('load', function() {
+                this.classList.remove('loading');
+                this.classList.add('loaded');
+                console.log("✅ Diagrama " + (index + 1) + " cargado: " + this.alt);
+            });
+            
+            img.addEventListener('error', function() {
+                this.classList.remove('loading');
+                console.warn("⚠️ Error cargando diagrama " + (index + 1) + ": " + this.src);
+                
+                // Mostrar mensaje de error
+                const container = this.closest('.image-container');
+                if (container) {
+                    const errorMsg = document.createElement('p');
+                    errorMsg.className = 'image-error';
+                    errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Diagrama no disponible temporalmente';
+                    errorMsg.style.color = '#dc3545';
+                    errorMsg.style.marginTop = '10px';
+                    container.appendChild(errorMsg);
+                }
+            });
+            
+            // Forzar carga si es necesario
+            if (img.complete) {
+                img.dispatchEvent(new Event('load'));
+            }
+        });
+    }
+    
+    // ====================
+    // 2. CONTROL DEL BOTÓN "VOLVER ARRIBA" (FIXED)
     // ====================
     const backToTopBtn = document.getElementById('backToTop');
     
@@ -44,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ====================
-    // 2. ACTUALIZAR AÑO EN FOOTER
+    // 3. ACTUALIZAR AÑO EN FOOTER
     // ====================
     const currentYear = new Date().getFullYear();
     const yearElements = document.querySelectorAll('footer p');
@@ -58,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ Año actualizado: " + currentYear);
     
     // ====================
-    // 3. NAVEGACIÓN ACTIVA
+    // 4. NAVEGACIÓN ACTIVA
     // ====================
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section[id]');
@@ -124,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ====================
-    // 4. CONFIGURAR TODOS LOS BOTONES "VOLVER ARRIBA"
+    // 5. CONFIGURAR TODOS LOS BOTONES "VOLVER ARRIBA"
     // ====================
     const allTopButtons = document.querySelectorAll('[onclick*="scrollToTop"], .back-top-btn, .top-btn, .footer-top-btn');
     
@@ -163,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ " + allTopButtons.length + " botones 'Volver Arriba' configurados");
     
     // ====================
-    // 5. EFECTOS HOVER EN TARJETAS
+    // 6. EFECTOS HOVER EN TARJETAS
     // ====================
     const cards = document.querySelectorAll('.card');
     
@@ -182,24 +224,24 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ Efectos hover configurados en " + cards.length + " tarjetas");
     
     // ====================
-    // 6. EFECTOS EN ROLES
+    // 7. EFECTOS EN DIAGRAMAS
     // ====================
-    const roleCards = document.querySelectorAll('.role-card');
+    const diagramSections = document.querySelectorAll('.diagram-section');
     
-    roleCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-12px) scale(1.02)';
-            this.style.boxShadow = '0 20px 45px rgba(24, 94, 32, 0.2)';
+    diagramSections.forEach(section => {
+        section.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
         });
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.08)';
+        section.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
         });
     });
     
     // ====================
-    // 7. ANIMACIÓN DE CARGA
+    // 8. ANIMACIÓN DE CARGA
     // ====================
     setTimeout(() => {
         document.body.style.opacity = '1';
@@ -207,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
     
     // ====================
-    // 8. SCROLL SUAVE GENERAL
+    // 9. SCROLL SUAVE GENERAL
     // ====================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -228,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ====================
-    // 9. ESCUCHAR SCROLL PARA NAVEGACIÓN Y BOTÓN
+    // 10. ESCUCHAR SCROLL PARA NAVEGACIÓN Y BOTÓN
     // ====================
     window.addEventListener('scroll', function() {
         updateActiveNav();
@@ -236,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ====================
-    // 10. BOTÓN DE CONTACTO MEJORADO
+    // 11. BOTÓN DE CONTACTO MEJORADO
     // ====================
     const contactButton = document.querySelector('.contact-button');
     if (contactButton) {
@@ -252,32 +294,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ====================
-    // 11. DETECCIÓN DE IMAGEN
+    // 12. INICIALIZAR DIAGRAMAS
     // ====================
-    const diagramImage = document.querySelector('.diagram');
-    if (diagramImage) {
-        diagramImage.addEventListener('load', function() {
-            console.log("✅ Diagrama cargado correctamente");
-            this.style.border = '3px solid #2E7D32';
-        });
-        
-        diagramImage.addEventListener('error', function() {
-            console.warn("⚠️ La imagen del diagrama no se pudo cargar");
-            this.style.border = '3px dashed #ff6b6b';
-            this.alt = 'Diagrama no disponible - Error de carga';
-        });
-    }
+    setupDiagramImages();
     
     // ====================
-    // 12. INICIALIZACIÓN COMPLETA
+    // 13. INICIALIZACIÓN COMPLETA
     // ====================
     setTimeout(() => {
         updateActiveNav(); // Actualizar navegación inicial
         
         console.log("🎉 Wiki completamente inicializada");
         console.log("🔗 Secciones detectadas: " + sections.length);
-        console.log("💼 Tarjetas de roles: " + roleCards.length);
-        console.log("🔼 Botones 'Volver Arriba': " + (allTopButtons.length + sectionTopButtons.length));
+        console.log("🖼️ Diagramas configurados: " + document.querySelectorAll('.diagram').length);
+        console.log("💼 Tarjetas de roles: " + document.querySelectorAll('.role-card').length);
         
         // Mostrar mensaje de bienvenida sutil
         if (!sessionStorage.getItem('wikiWelcomeShown')) {
@@ -287,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
     
     // ====================
-    // 13. RESPONSIVE CHECK
+    // 14. RESPONSIVE CHECK
     // ====================
     function checkResponsive() {
         const isMobile = window.innerWidth <= 768;
@@ -347,10 +377,10 @@ window.wikiUtils = {
     print: printWiki,
     darkMode: toggleDarkMode,
     scrollToTop: scrollToTop,
-    version: '1.1.0',
+    version: '1.2.0',
     author: 'Nutriplumas S.A.',
-    features: ['navegación', 'scroll-smooth', 'botones-volver', 'responsive']
+    features: ['navegación', 'scroll-smooth', 'botones-volver', 'diagramas', 'responsive']
 };
 
-console.log("🔧 Utilidades disponibles: window.wikiUtils");
+console.log("🔧 Utilidades disponibles: window.wikiUtils"););
 });
