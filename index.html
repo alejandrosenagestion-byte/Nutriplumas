@@ -9,11 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- BOTÓN VOLVER ARRIBA (FIXED) -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <div class="container">
         <!-- HEADER -->
         <header>
             <h1><i class="fas fa-landmark"></i> Área de Finanzas y Abastecimiento</h1>
             <p class="subtitle">NutripLumas S.A. - El motor estratégico de la producción de proteína</p>
+            
+            <!-- BOTÓN VOLVER ARRIBA EN HEADER -->
+            <div class="header-actions">
+                <button class="top-btn" onclick="scrollToTop()">
+                    <i class="fas fa-home"></i> Inicio
+                </button>
+            </div>
         </header>
 
         <!-- NAVEGACIÓN -->
@@ -30,7 +42,12 @@
         <main>
             <!-- INTRODUCCIÓN -->
             <section id="introduccion" class="card">
-                <h2><i class="fas fa-bullseye"></i> 1. INTRODUCCIÓN: EL MOTOR ESTRATÉGICO DE NUTRIPLUMAS</h2>
+                <div class="section-header">
+                    <h2><i class="fas fa-bullseye"></i> 1. INTRODUCCIÓN: EL MOTOR ESTRATÉGICO DE NUTRIPLUMAS</h2>
+                    <button class="section-top-btn" onclick="scrollToTop()" title="Volver al inicio">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
                 <p>El área de Finanzas y Abastecimiento es el <strong>corazón económico</strong> de Nutriplumas, la empresa encargada de la producción y comercialización de proteína de alta calidad. Nuestra misión es doble:</p>
                 
                 <div class="mission-grid">
@@ -55,7 +72,12 @@
 
             <!-- ESTRUCTURA ORGANIZACIONAL -->
             <section id="estructura" class="card">
-                <h2><i class="fas fa-building"></i> 2. ESTRUCTURA ORGANIZACIONAL: LOS 5 PILARES DE NUTRIPLUMAS</h2>
+                <div class="section-header">
+                    <h2><i class="fas fa-building"></i> 2. ESTRUCTURA ORGANIZACIONAL: LOS 5 PILARES DE NUTRIPLUMAS</h2>
+                    <button class="section-top-btn" onclick="scrollToTop()" title="Volver al inicio">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
                 
                 <div class="table-container">
                     <table class="wiki-table">
@@ -95,11 +117,22 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <div class="section-footer">
+                    <button class="back-top-btn" onclick="scrollToTop()">
+                        <i class="fas fa-arrow-up"></i> Volver al Inicio
+                    </button>
+                </div>
             </section>
 
             <!-- PROCESOS CLAVE -->
             <section id="procesos" class="card">
-                <h2><i class="fas fa-cogs"></i> 3. PROCESO CLAVE: EL CICLO DE COMPRA Y CONTROL DE COSTOS</h2>
+                <div class="section-header">
+                    <h2><i class="fas fa-cogs"></i> 3. PROCESO CLAVE: EL CICLO DE COMPRA Y CONTROL DE COSTOS</h2>
+                    <button class="section-top-btn" onclick="scrollToTop()" title="Volver al inicio">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
                 <p>El proceso que garantiza que Nutriplumas nunca se quede sin materia prima y que cada compra sea rentable:</p>
                 
                 <div class="table-container">
@@ -146,11 +179,22 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <div class="section-footer">
+                    <button class="back-top-btn" onclick="scrollToTop()">
+                        <i class="fas fa-arrow-up"></i> Volver al Inicio
+                    </button>
+                </div>
             </section>
 
             <!-- ROLES COMPLETOS -->
             <section id="roles" class="card">
-                <h2><i class="fas fa-users"></i> 4. ROLES Y RESPONSABILIDADES DEL EQUIPO</h2>
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> 4. ROLES Y RESPONSABILIDADES DEL EQUIPO</h2>
+                    <button class="section-top-btn" onclick="scrollToTop()" title="Volver al inicio">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
                 
                 <div class="roles-container">
                     <!-- GERENTE -->
@@ -278,11 +322,22 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="section-footer">
+                    <button class="back-top-btn" onclick="scrollToTop()">
+                        <i class="fas fa-arrow-up"></i> Volver al Inicio
+                    </button>
+                </div>
             </section>
 
             <!-- CONCLUSIÓN -->
             <section id="conclusion" class="card">
-                <h2><i class="fas fa-flag-checkered"></i> 5. CONCLUSIÓN: GENERACIÓN DE VALOR</h2>
+                <div class="section-header">
+                    <h2><i class="fas fa-flag-checkered"></i> 5. CONCLUSIÓN: GENERACIÓN DE VALOR</h2>
+                    <button class="section-top-btn" onclick="scrollToTop()" title="Volver al inicio">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
                 <div class="conclusion-content">
                     <div class="conclusion-icon">
                         <i class="fas fa-gem"></i>
@@ -307,11 +362,22 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="section-footer">
+                    <button class="back-top-btn" onclick="scrollToTop()">
+                        <i class="fas fa-arrow-up"></i> Volver al Inicio
+                    </button>
+                </div>
             </section>
 
             <!-- DIAGRAMA -->
             <section id="diagrama" class="card">
-                <h2><i class="fas fa-chart-line"></i> 6. DIAGRAMA DE PROCESOS</h2>
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> 6. DIAGRAMA DE PROCESOS</h2>
+                    <button class="section-top-btn" onclick="scrollToTop()" title="Volver al inicio">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
                 <p>Visualización completa del ciclo de compra y control de costos:</p>
                 
                 <div class="image-container">
@@ -320,11 +386,22 @@
                          class="diagram">
                     <p class="image-caption">Diagrama actualizado - Noviembre 2025</p>
                 </div>
+                
+                <div class="section-footer">
+                    <button class="back-top-btn" onclick="scrollToTop()">
+                        <i class="fas fa-arrow-up"></i> Volver al Inicio
+                    </button>
+                </div>
             </section>
 
             <!-- CONTACTO SIMPLE -->
             <section id="contacto" class="card contact-card">
-                <h2><i class="fas fa-envelope"></i> 7. CONTACTO</h2>
+                <div class="section-header">
+                    <h2><i class="fas fa-envelope"></i> 7. CONTACTO</h2>
+                    <button class="section-top-btn" onclick="scrollToTop()" title="Volver al inicio">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
                 
                 <div class="simple-contact">
                     <div class="contact-main">
@@ -366,6 +443,12 @@
                         <span>Enviar Correo</span>
                     </a>
                 </div>
+                
+                <div class="section-footer">
+                    <button class="back-top-btn" onclick="scrollToTop()">
+                        <i class="fas fa-arrow-up"></i> Volver al Inicio
+                    </button>
+                </div>
             </section>
         </main>
 
@@ -374,10 +457,29 @@
                 <p><i class="far fa-copyright"></i> 2025 NutripLumas S.A. - Departamento Financiero</p>
                 <p class="last-update"><i class="far fa-clock"></i> Última actualización: Diciembre 2025</p>
                 <p class="footer-note"><i class="fas fa-lock"></i> Documento interno - Uso confidencial</p>
+                
+                <!-- BOTÓN FINAL VOLVER ARRIBA -->
+                <button class="footer-top-btn" onclick="scrollToTop()">
+                    <i class="fas fa-arrow-up"></i> Volver al Inicio de la Página
+                </button>
             </div>
         </footer>
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- FUNCIÓN GLOBAL PARA SCROLL -->
+    <script>
+        // Función global para scroll suave al top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Hacerla disponible globalmente
+        window.scrollToTop = scrollToTop;
+    </script>
 </body>
 </html>
