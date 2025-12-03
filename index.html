@@ -1,74 +1,131 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki NutripLumas S.A.</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-book"></i> Wiki NutripLumas S.A.</h1>
-            <p class="subtitle">Compras Nacionales, Importaciones y Gestión Financiera</p>
-        </header>
-
-        <main>
-            <!-- DIAGRAMA PRINCIPAL -->
-            <section class="card main-diagram">
-                <h2><i class="fas fa-chart-line"></i> Diagrama de Procesos</h2>
-                <div class="image-container">
-                    <img src="diagrama.jpeg" 
-                         alt="Diagrama de procesos NutripLumas" 
-                         class="diagram">
-                    <p class="image-caption">Diagrama actualizado - Noviembre 2025</p>
+<!-- ROLES COMPLETOS -->
+<section id="roles" class="card">
+    <h2><i class="fas fa-users"></i> 4. ROLES Y RESPONSABILIDADES DEL EQUIPO</h2>
+    
+    <div class="roles-container">
+        <!-- GERENTE -->
+        <div class="role-card">
+            <div class="role-header">
+                <div class="role-icon">
+                    <i class="fas fa-crown"></i>
                 </div>
-            </section>
+                <h3>Gerente de Finanzas y Abastecimiento</h3>
+                <span class="role-tag">Liderazgo Estratégico</span>
+            </div>
+            <div class="role-content">
+                <p><strong>Función Principal:</strong> Liderar la fusión de la estrategia financiera con la cadena de suministro.</p>
+                <h4>Responsabilidades Clave:</h4>
+                <ul>
+                    <li>Definir el presupuesto anual del área y las métricas de rentabilidad.</li>
+                    <li>Dirigir al Coordinador de Compras para buscar valor y no solo precio.</li>
+                    <li>Gestionar riesgos con el Analista de Tesorería (fluctuaciones de dólar/materia prima).</li>
+                    <li>Autorización final de Órdenes de Compra significativas.</li>
+                </ul>
+                <h4>Interacciones Clave:</h4>
+                <p><strong>Con Coordinador de Compras:</strong> Aprobación final de negociaciones para cumplir márgenes.<br>
+                <strong>Con Analista de Tesorería:</strong> Supervisión de pronósticos de flujo de caja.<br>
+                <strong>Con Analista de Costos:</strong> Uso de reportes para ajustar estrategia de precios.</p>
+            </div>
+        </div>
 
-            <!-- INFORMACIÓN ORGANIZADA -->
-            <section class="card">
-                <h2><i class="fas fa-info-circle"></i> Información del Departamento</h2>
-                <p class="description">Documentación completa de los procesos de compras, importaciones y gestión financiera de NutripLumas S.A.</p>
-                
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                        </div>
-                        <h3>Presupuestos</h3>
-                        <p>Gestión, seguimiento y control de presupuestos anuales del departamento financiero.</p>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <h3>Importaciones</h3>
-                        <p>Coordinación y control de procesos internacionales de compra y logística.</p>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h3>Auditorías</h3>
-                        <p>Preparación, documentación y seguimiento de procesos auditoría interna y externa.</p>
-                    </div>
+        <!-- COORDINADOR DE COMPRAS -->
+        <div class="role-card">
+            <div class="role-header">
+                <div class="role-icon">
+                    <i class="fas fa-handshake"></i>
                 </div>
-            </section>
-        </main>
+                <h3>Coordinador de Compras y Proveedores</h3>
+                <span class="role-tag">Gestión Operativa</span>
+            </div>
+            <div class="role-content">
+                <p><strong>Función Principal:</strong> Gestionar la adquisición eficiente de materias primas.</p>
+                <h4>Responsabilidades Clave:</h4>
+                <ul>
+                    <li>Buscar cotizaciones y evaluar proveedores.</li>
+                    <li>Negociar contratos y condiciones de pago.</li>
+                    <li>Gestionar relaciones con proveedores de materia prima.</li>
+                    <li>Emitir órdenes de compra previa aprobación gerencial.</li>
+                </ul>
+                <h4>Interacciones Clave:</h4>
+                <p><strong>Con Gerente:</strong> Presenta opciones de compra para aprobación.<br>
+                <strong>Con Analista de Costos:</strong> Coordina necesidades de materia prima.<br>
+                <strong>Con Proveedores:</strong> Negociación y seguimiento de entregas.</p>
+            </div>
+        </div>
 
-        <footer>
-            <p><i class="far fa-copyright"></i> 2025 NutripLumas S.A. - Departamento Financiero</p>
-            <p class="last-update"><i class="far fa-clock"></i> Última actualización: Diciembre 2025</p>
-        </footer>
+        <!-- ANALISTA DE TESORERÍA -->
+        <div class="role-card">
+            <div class="role-header">
+                <div class="role-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Analista Senior de Tesorería y Riesgos</h3>
+                <span class="role-tag">Control de Liquidez</span>
+            </div>
+            <div class="role-content">
+                <p><strong>Función Principal:</strong> Gestionar liquidez y mitigar riesgos financieros.</p>
+                <h4>Responsabilidades Clave:</h4>
+                <ul>
+                    <li>Elaborar pronósticos de flujo de caja semanal/mensual.</li>
+                    <li>Gestionar cuentas bancarias y relaciones con entidades financieras.</li>
+                    <li>Mitigar riesgos financieros (tasas de cambio, tasas de interés).</li>
+                    <li>Confirmar liquidez para pagos programados.</li>
+                </ul>
+                <h4>Interacciones Clave:</h4>
+                <p><strong>Con Gerente:</strong> Reporta disponibilidad de fondos para grandes compras.<br>
+                <strong>Con Analista Contable:</strong> Coordina movimientos bancarios.<br>
+                <strong>Con Auxiliar:</strong> Programa fechas de pago a proveedores.</p>
+            </div>
+        </div>
+
+        <!-- ANALISTA DE CONTABILIDAD -->
+        <div class="role-card">
+            <div class="role-header">
+                <div class="role-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Analista Senior de Contabilidad y Control de Costos</h3>
+                <span class="role-tag">Exactitud Financiera</span>
+            </div>
+            <div class="role-content">
+                <p><strong>Función Principal:</strong> Garantizar exactitud financiera y análisis de costos.</p>
+                <h4>Responsabilidades Clave:</h4>
+                <ul>
+                    <li>Registrar transacciones y generar estados financieros.</li>
+                    <li>Monitorear costo real de producción por unidad de proteína.</li>
+                    <li>Realizar cierres contables mensuales.</li>
+                    <li>Analizar variaciones presupuestarias.</li>
+                </ul>
+                <h4>Interacciones Clave:</h4>
+                <p><strong>Con Gerente:</strong> Provee reportes para decisiones estratégicas.<br>
+                <strong>Con Coordinador Compras:</strong> Verifica costos de materia prima.<br>
+                <strong>Con Auxiliar:</strong> Supervisa registros contables.</p>
+            </div>
+        </div>
+
+        <!-- AUXILIAR -->
+        <div class="role-card">
+            <div class="role-header">
+                <div class="role-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <h3>Auxiliar de Cuentas por Cobrar y Pagar</h3>
+                <span class="role-tag">Operaciones Transaccionales</span>
+            </div>
+            <div class="role-content">
+                <p><strong>Función Principal:</strong> Ejecutar tareas transaccionales de cobro y pago.</p>
+                <h4>Responsabilidades Clave:</h4>
+                <ul>
+                    <li>Emitir facturas a clientes (Cuentas por Cobrar).</li>
+                    <li>Gestionar cobro a clientes (Bucanero, KFC, etc.).</li>
+                    <li>Realizar pagos a proveedores (Cuentas por Pagar).</li>
+                    <li>Conciliar cuentas bancarias.</li>
+                </ul>
+                <h4>Interacciones Clave:</h4>
+                <p><strong>Con Analista Tesorería:</strong> Ejecuta pagos según programación.<br>
+                <strong>Con Analista Contable:</strong> Registra transacciones.<br>
+                <strong>Con Clientes/Proveedores:</strong> Comunicación operativa.</p>
+            </div>
+        </div>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-    <script src="script.js"></script>
-</body>
-</html>
+</section>
