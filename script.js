@@ -16,7 +16,35 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ DOM completamente cargado");
     
     // ====================
-    // 1. ACTUALIZAR AÑO EN FOOTER
+    // 1. CONTROL DEL BOTÓN "VOLVER ARRIBA" (FIXED)
+    // ====================
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    function toggleBackToTopButton() {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    }
+    
+    // Configurar el botón
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            console.log("⬆️ Scroll al inicio (botón flotante)");
+        });
+        
+        // Mostrar/ocultar según scroll
+        window.addEventListener('scroll', toggleBackToTopButton);
+        toggleBackToTopButton(); // Estado inicial
+    }
+    
+    // ====================
+    // 2. ACTUALIZAR AÑO EN FOOTER
     // ====================
     const currentYear = new Date().getFullYear();
     const yearElements = document.querySelectorAll('footer p');
@@ -30,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ Año actualizado: " + currentYear);
     
     // ====================
-    // 2. NAVEGACIÓN ACTIVA
+    // 3. NAVEGACIÓN ACTIVA
     // ====================
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section[id]');
@@ -96,7 +124,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ====================
-    // 3. EFECTOS HOVER EN TARJETAS
+    // 4. CONFIGURAR TODOS LOS BOTONES "VOLVER ARRIBA"
+    // ====================
+    const allTopButtons = document.querySelectorAll('[onclick*="scrollToTop"], .back-top-btn, .top-btn, .footer-top-btn');
+    
+    allTopButtons.forEach(button => {
+        // Remover el onclick inline si existe
+        if (button.hasAttribute('onclick')) {
+            const onclickAttr = button.getAttribute('onclick');
+            if (onclickAttr.includes('scrollToTop')) {
+                button.removeAttribute('onclick');
+                
+                // Agregar evento limpio
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    console.log("⬆️ Scroll al inicio desde: " + this.className);
+                });
+            }
+        }
+    });
+    
+    // También configurar los botones de sección
+    const sectionTopButtons = document.querySelectorAll('.section-top-btn');
+    sectionTopButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            console.log("⬆️ Scroll al inicio (botón de sección)");
+        });
+    });
+    
+    console.log("✅ " + allTopButtons.length + " botones 'Volver Arriba' configurados");
+    
+    // ====================
+    // 5. EFECTOS HOVER EN TARJETAS
     // ====================
     const cards = document.querySelectorAll('.card');
     
@@ -115,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ Efectos hover configurados en " + cards.length + " tarjetas");
     
     // ====================
-    // 4. EFECTOS EN ROLES
+    // 6. EFECTOS EN ROLES
     // ====================
     const roleCards = document.querySelectorAll('.role-card');
     
@@ -132,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ====================
-    // 5. ANIMACIÓN DE CARGA
+    // 7. ANIMACIÓN DE CARGA
     // ====================
     setTimeout(() => {
         document.body.style.opacity = '1';
@@ -140,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
     
     // ====================
-    // 6. SCROLL SUAVE GENERAL
+    // 8. SCROLL SUAVE GENERAL
     // ====================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -161,12 +228,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ====================
-    // 7. ESCUCHAR SCROLL PARA NAVEGACIÓN
+    // 9. ESCUCHAR SCROLL PARA NAVEGACIÓN Y BOTÓN
     // ====================
-    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('scroll', function() {
+        updateActiveNav();
+        toggleBackToTopButton();
+    });
     
     // ====================
-    // 8. BOTÓN DE CONTACTO MEJORADO
+    // 10. BOTÓN DE CONTACTO MEJORADO
     // ====================
     const contactButton = document.querySelector('.contact-button');
     if (contactButton) {
@@ -182,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ====================
-    // 9. DETECCIÓN DE IMAGEN
+    // 11. DETECCIÓN DE IMAGEN
     // ====================
     const diagramImage = document.querySelector('.diagram');
     if (diagramImage) {
@@ -199,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ====================
-    // 10. INICIALIZACIÓN COMPLETA
+    // 12. INICIALIZACIÓN COMPLETA
     // ====================
     setTimeout(() => {
         updateActiveNav(); // Actualizar navegación inicial
@@ -207,6 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("🎉 Wiki completamente inicializada");
         console.log("🔗 Secciones detectadas: " + sections.length);
         console.log("💼 Tarjetas de roles: " + roleCards.length);
+        console.log("🔼 Botones 'Volver Arriba': " + (allTopButtons.length + sectionTopButtons.length));
         
         // Mostrar mensaje de bienvenida sutil
         if (!sessionStorage.getItem('wikiWelcomeShown')) {
@@ -216,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
     
     // ====================
-    // 11. RESPONSIVE CHECK
+    // 13. RESPONSIVE CHECK
     // ====================
     function checkResponsive() {
         const isMobile = window.innerWidth <= 768;
@@ -259,6 +330,15 @@ function toggleDarkMode() {
     console.log("🌙 Modo oscuro: " + document.body.classList.contains('dark-mode'));
 }
 
+// Función global para scroll suave al top (definida también en HTML)
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    console.log("⬆️ Scroll al inicio (función global)");
+}
+
 // ============================================
 // EXPORTAR FUNCIONES PARA CONSOLA (DEBUG)
 // ============================================
@@ -266,8 +346,10 @@ window.wikiUtils = {
     copyEmail: copyEmailToClipboard,
     print: printWiki,
     darkMode: toggleDarkMode,
-    version: '1.0.0',
-    author: 'Nutriplumas S.A.'
+    scrollToTop: scrollToTop,
+    version: '1.1.0',
+    author: 'Nutriplumas S.A.',
+    features: ['navegación', 'scroll-smooth', 'botones-volver', 'responsive']
 };
 
 console.log("🔧 Utilidades disponibles: window.wikiUtils");
